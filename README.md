@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PreFlight Course Platform
 
-## Getting Started
+פלטפורמת למידה מתקדמת לקהילת DCS World ישראל
 
-First, run the development server:
+## תיאור הפרויקט
 
+PreFlight היא פלטפורמת חינוכית מלאה לניהול קורסי טיסה ואימונים עבור קהילת DCS World בישראל. המערכת תומכת בעברית מלאה ובפריסה מימין לשמאל (RTL).
+
+## תכונות עיקריות
+
+- 🎓 **קטלוג קורסים** - מגוון קורסי טיסה (F-16, BVR Combat ועוד)
+- 📹 **שיעורי וידאו** עם מעקב התקדמות
+- 👨‍✈️ **מערכת הזמנות מדריכים** לאימונים אישיים
+- 📅 **לוח אירועים קהילתי** עם RSVP
+- 📚 **מרכז ידע** - הורדות צ'קליסטים, ליבריות ומשימות
+- 🔐 **מערכת אימות מאובטחת** עם Supabase
+- 🎨 **עיצוב אווירונאוטי כהה** עם תמיכה מלאה בעברית
+
+## טכנולוגיות
+
+- **Frontend**: Next.js 15, TypeScript, Tailwind CSS
+- **Backend/Auth**: Supabase
+- **UI**: עיצוב RTL מלא, גופן Assistant לעברית
+- **אבטחה**: הגנה מפני XSS ו-SQL Injection
+
+## התקנה והפעלה
+
+1. התקן את התלות:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. צור קובץ `.env.local` עם המשתנים הבאים:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. הפעל את שרת הפיתוח:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. פתח את [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## הגדרת Supabase
 
-To learn more about Next.js, take a look at the following resources:
+1. צור פרויקט חדש ב-[Supabase](https://supabase.com)
+2. הפעל את Authentication עם Email/Password
+3. צור את הטבלאות הנדרשות בעזרת קובץ ה-sql בתיקיית `database`
+4. העתק את ה-URL וה-Anon Key לקובץ `.env.local`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## מבנה הפרויקט
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/                 # Next.js App Router
+│   ├── (auth)/         # דפי אימות
+│   ├── dashboard/      # דף הבית
+│   ├── courses/        # קטלוג קורסים
+│   ├── lessons/        # צפייה בשיעורים
+│   ├── instructors/    # הזמנת מדריכים
+│   ├── calendar/       # לוח אירועים
+│   ├── hub/           # מרכז ידע
+│   └── admin/         # פאנל מנהלים
+├── components/         # קומפוננטות גלובליות
+├── lib/               # פונקציות עזר
+└── types/             # טיפוסי TypeScript
+```
 
-## Deploy on Vercel
+## תרומה
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+הפרויקט פתוח לתרומות מהקהילה. אנא פתח פול לפני ביצוע שינויים משמעותיים.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## רישיון
+
+MIT License
